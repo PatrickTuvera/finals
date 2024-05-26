@@ -1,96 +1,27 @@
 <aside id="sidebar" class="sidebar">
-
-<ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="bi bi-grid"></i>
                 <span>{{ __('Dashboard') }}</span>
             </a>
-      </li><!-- End Dashboard Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Components Nav -->
-  </aside><!-- End Sidebar-->
+        </li>
 
-<!-- End Sidebar-->
-<!-- <<nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">  -->
-    Primary Navigation Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#resources-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-menu-button-wide"></i><span>Resources</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+            <ul id="resources-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{ route('post.index') }}"> <i class="bi bi-circle"></i><span>Posts</span> </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+
+{{-- <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-         <div class="flex justify-between h-16">
+        <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
@@ -107,7 +38,7 @@
                 </div>
             </div>
 
-            Settings Dropdown
+            <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -127,21 +58,21 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        Authentication
+                        <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
-                            <!-- @csrf -->
+                            @csrf
 
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
-                             </x-dropdown-link>
+                            </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
             </div>
 
-            Hamburger
+            <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
                 <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -153,7 +84,7 @@
         </div>
     </div>
 
-    Responsive Navigation Menu 
+    <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -161,7 +92,7 @@
             </x-responsive-nav-link>
         </div>
 
-        Responsive Settings Options
+        <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
@@ -173,17 +104,17 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                Authentication
+                <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
-                     @csrf 
+                    @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                             onclick="event.preventDefault(); -->
+                            onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                      {{ __('Log Out') }} 
+                        {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
         </div>
-     </div> 
-<!-- </nav>  -->
+    </div>
+</nav> --}}
