@@ -38,16 +38,18 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                        <form method="POST" action="{{ route('logout') }}">
-                                @csrf
+                    <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
-                                <x-dropdown-link :href="route('logout')" class="dropdown-item d-flex align-items-center"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                </x-dropdown-link>
-                            </form>
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <i class="bi bi-box-arrow-right"></i>
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
 
+                    
                 </ul>
                 <!-- End Profile Dropdown Items -->
             </li>

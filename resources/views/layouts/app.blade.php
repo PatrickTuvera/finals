@@ -29,9 +29,6 @@
     <body class="font-sans antialiased">
             @include('layouts.header')
             @include('layouts.navigation')
-
-            
-
             <!-- Page Content -->
             <main id="main" class="main">
                 {{ $slot }}
