@@ -13,6 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny', Post::class);
         $posts = Post::all();
         return view('resources.post.index', ['posts' => $posts]);
     }
@@ -44,6 +45,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $this->authorize('view', Post::class);
         return view('resources.post.show', ['post' => $post]);
     }
 
